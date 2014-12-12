@@ -33,6 +33,11 @@ $rdd_tip_address = trim($dfdrdd_settings_options['reddcoin_tip_address']);
 	
 	}
 	
+echo "\n".'<script>
+var dfdrddtips_plugin_base = "'.$_SESSION['dfdrddtips_url'].'";
+</script>'."\n";
+echo "\n".'<script src="'.$_SESSION['dfdrddtips_url'].'/assets/js/ajax.requests.js"></script>'."\n";
+
 }
 
 function parse_unix_timestamp($time_string) {
@@ -161,5 +166,72 @@ function encrypt_api() {
 	add_filter( 'pre_update_option_dfdrdd_settings_plugin_options_api_get', 'update_field_api', 10, 2 );
 	add_filter( 'pre_update_option_dfdrdd_settings_plugin_options_api_post', 'update_field_api', 10, 2 );
 }
+
+
+function get_btc_usd($btc_in_usd) {
+
+  
+    if ( strtolower($btc_in_usd) == 'coinbase' ) {
+  
+    
+  
+    $json_string = 'https://coinbase.com/api/v1/prices/spot_rate?currency=USD';
+    
+    $jsondata = file_get_contents($json_string);
+    
+    $data = json_decode($jsondata, TRUE);
+    
+    
+    return $data['amount'];
+  
+    }
+  
+
+  
+
+}
+
+function get_trade_price($market, $market_id) {
+
+
+  if ( strtolower($market) == 'cryptsy' ) {
+  
+  $json_string = 'http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid='.$market_id;
+  
+  $jsondata = file_get_contents($json_string);
+  
+  $data = json_decode($jsondata, TRUE);
+  
+  //print_r($data);
+  
+	  foreach ($data as $markets) {
+	   if (is_array($markets)) {
+	    foreach($markets as $market) {
+	      foreach($market as $attributes) {
+  
+	  return $attributes["lasttradeprice"];
+  
+	  /*
+		foreach($attributes["recenttrades"] as $recenttrade) { 
+		  //echo "<pre>";
+		  //print_r($recenttrade);
+		  //echo "</pre>";
+		  echo "VALUES('{quantity: " . $recenttrade['quantity'] ."}', 'price: {" . $recenttrade['price'] . "}')";
+		}
+  
+	  */
+  
+	      }
+	    }
+	   }
+	  }
+  
+  
+  }
+
+
+}
+
+
 
 ?>

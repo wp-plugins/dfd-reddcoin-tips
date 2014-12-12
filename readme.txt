@@ -6,7 +6,7 @@ Donate link: http://www.dragonfrugal.com/open.source/software/dfdreddcointips/
 Tags: reddcoin, tips, tipping, cryptocurrency
 Requires at least: 3.8
 Tested up to: 4.0.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -41,3 +41,9 @@ You can install fairly easily doing a search in your plugin admin area, or uploa
 = 1.0.3 =
 * 2014-12-03
 * Added 2 way / 256 bit encryption to API keys storage in the database, for high ReddAPI account security. Your Wordpress password is now required to decrypt the API keys on the fly when running commands to connect with the ReddAPI system.
+
+= 1.0.4 =
+* 2014-12-10
+* Made the narrower tipping badge widget look more like the larger widget, just narrower.
+* Made the widgets CSS code reset template-based styling on certain html elements within the widgets, and used inline styling in some cases, to minimize compatibility issues with themes using the widget (please report any unforseen CSS compatibility issues if you notice them, so they can be fixed).
+* Added Bitcoin exchange rate display option and USD to Reddcoin value calculator option to all tipping address widgets.

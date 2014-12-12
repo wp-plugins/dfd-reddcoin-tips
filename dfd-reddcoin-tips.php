@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: DFD Reddcoin Tips
- * Version: 1.0.3
+ * Version: 1.0.4
  * Plugin URI: https://wordpress.org/plugins/dfd-reddcoin-tips/
  * Description: A Wordpress plugin to display <a href="http://www.reddcoin.com/" target="_blank">Reddcoin</a> tipping and payment widgets on your website, and send and recieve Reddcoins within a built-in password-protected admin console that fully integrates and connects you to the Reddcoin API (<a href="https://www.reddapi.com/" target="_blank">ReddAPI.com</a>).
  * Author: Michael Kilday
@@ -15,7 +15,15 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+
+if ( !$_SESSION ) {
 session_start();  // We need a session for the qr image generator
+}
+
+if ( !$_SESSION['dfdrddtips_url'] ) {
+$_SESSION['dfdrddtips_url'] = plugins_url() . '/dfd-reddcoin-tips';
+}
+
 
 if ( !$_SESSION['sec_key'] ) {
 //$_SESSION['sec_key'] = NULL;  // Testing for null security keys security holes
@@ -29,10 +37,10 @@ require_once( 'includes/functions/main_functions.php' );
 
 
 // Widgets
-require_once( 'includes/widgets/widget_1.php' );
-add_action( 'widgets_init', 'dfd_rdd_register_widget_1' );
-require_once( 'includes/widgets/widget_2.php' );
-add_action( 'widgets_init', 'dfd_rdd_register_widget_2' );
+require_once( 'includes/widgets/tip-widgets/tip_widget_1.php' );
+add_action( 'widgets_init', 'dfd_rdd_register_tip_widget_1' );
+require_once( 'includes/widgets/tip-widgets/tip_widget_2.php' );
+add_action( 'widgets_init', 'dfd_rdd_register_tip_widget_2' );
 
 
 
@@ -61,8 +69,7 @@ $dfdrdd_console_options = get_option( 'dfdrdd_console_plugin_options' );
 
  // Tipping address put in a session for qrlib QR image data
 $_SESSION['rdd_coin_address'] = trim($dfdrdd_settings_options['reddcoin_tip_address']);
-
-
+ 
 
 
 ?>
