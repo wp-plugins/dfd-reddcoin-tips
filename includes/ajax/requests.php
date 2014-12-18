@@ -15,7 +15,7 @@ $rdd_in_btc = $data;  // Amount one RDD coin goes for in BTC
 
 $btc_usd = get_btc_usd('coinbase');  // USD Value of one bitcoin
 
-$paid_in_btc = round(($rdd_paid_usd / $btc_usd),8);  // Pay amount in bitcoin
+$paid_in_btc = ($rdd_paid_usd / $btc_usd);  // Pay amount in bitcoin
 
 $paid_in_rdd = round(($paid_in_btc / $rdd_in_btc),8);  // Converted amount in coin to be paid
 

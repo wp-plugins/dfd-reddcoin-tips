@@ -193,10 +193,11 @@ function get_btc_usd($btc_in_usd) {
 
 function get_trade_price($market, $market_id) {
 
+$cryptsy_server = 'pubapi1.cryptsy.com';  // https://www.cryptsy.com/pages/publicapi
 
   if ( strtolower($market) == 'cryptsy' ) {
   
-  $json_string = 'http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid='.$market_id;
+  $json_string = 'http://'.$cryptsy_server.'/api.php?method=singlemarketdata&marketid='.$market_id;
   
   $jsondata = file_get_contents($json_string);
   
