@@ -281,7 +281,7 @@ $rdd_tip_address = trim($dfdrdd_settings_options['reddcoin_tip_address']);
             padding-left: 5px;
             background-color: #e9eaee;
 	    font-family: sans-serif;
-            color: black;' /><a href="Reddcoin:<?=$rdd_tip_address?>?amount=0&message=reddcoin_tip" id='rdd_pay_link_tip_widget_2' target="_blank"><img src="<?php echo plugins_url(); ?>/dfd-reddcoin-tips/assets/images/wallet--arrow.ico" border="0" class="coin_wallet_tip_widget_2" style='margin: 0px;' title="Click here if you are sending a tip with a wallet on a PC." /></a>
+            color: black;' /><a href="Reddcoin:<?=$rdd_tip_address?>?amount=0&label=dfd_reddcoin_tips" id='rdd_pay_link_tip_widget_2' target="_blank"><img src="<?php echo plugins_url(); ?>/dfd-reddcoin-tips/assets/images/wallet--arrow.ico" border="0" class="coin_wallet_tip_widget_2" style='margin: 0px;' title="Click here if you are sending a tip with a wallet on a PC." /></a>
     <div align='center' style='clear: both; height: 1px;'></div><a href='<?php echo plugins_url(); ?>/dfd-reddcoin-tips/assets/images/rdd-tip-address.php' style='color: black; position: relative; font-size: 10px;' target='_blank' title='Click here to scan this tipping address as a QR Code image with a smartphone camera and app, to save and use on your phone.'>Scan QR Code With Your Phone Instead</a>
     </div>
     <div align='center' class="coin_accepted_tip_widget_2" style='padding-top: 15px;'>Reddcoin Tips Accepted</div> 

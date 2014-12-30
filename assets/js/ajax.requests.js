@@ -56,7 +56,7 @@ Display "Loading...", and see if the request has been responded to, and that it 
         var trimmed_response = trim_response.trim();
 	paid_in_coin.value = trimmed_response;
         var link_regex = /amount=(.*)/i;
-        pay_link.href = pay_link.href.replace(link_regex, "amount="+trimmed_response+"&message=reddcoin_tip");
+        pay_link.href = pay_link.href.replace(link_regex, "amount="+trimmed_response+"&label=dfd_reddcoin_tips");
 	document.getElementById("request_status_"+status_field).innerHTML = "Exchange rate was calculated, and PC wallet tipping link updated.";
 	}
 	else if (http_request.readyState == 4 && http_request.status != 200) {

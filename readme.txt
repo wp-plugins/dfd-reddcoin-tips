@@ -6,7 +6,7 @@ Donate link: http://www.dragonfrugal.com/open.source/software/dfdreddcointips/
 Tags: reddcoin, tips, tipping, cryptocurrency
 Requires at least: 3.8
 Tested up to: 4.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -62,3 +62,7 @@ You can install fairly easily doing a search in your plugin admin area, or uploa
 * Tested in Wordpress 4.1
 * Fixed minor bug in rounding calculated Reddcoin values to 8 decimal places.
 * Explicitly set Cryptsy API server to NY server, as either the round robin on the main API domain or the secondary Amsterdam server is currently malfunctioning.
+
+= 1.0.6 =
+* 2014-12-30
+* Changed payment link to use label value instead of message value, for better compatibility with Reddcoin wallets.
