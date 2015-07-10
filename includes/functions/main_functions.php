@@ -191,44 +191,88 @@ function get_btc_usd($btc_in_usd) {
 
 }
 
+ 
+//////////////////////////////////////////////////////////
+ function cryptsy_market_api($market_id) {
+
+  $cryptsy_server = 'pubapi.cryptsy.com';  // https://www.cryptsy.com/pages/publicapi
+  $json_string = 'http://'.$cryptsy_server.'/api.php?method=singlemarketdata&marketid=' . $market_id;
+  $jsondata = file_get_contents($json_string);
+   
+   
+  if ( !$jsondata ) {
+  $cryptsy_server = 'pubapi1.cryptsy.com';  // https://www.cryptsy.com/pages/publicapi
+  $json_string = 'http://'.$cryptsy_server.'/api.php?method=singlemarketdata&marketid=' . $market_id;
+  $jsondata = file_get_contents($json_string);
+  }
+  
+  
+
+  if ( !$jsondata ) {
+  $cryptsy_server = 'pubapi2.cryptsy.com';  // https://www.cryptsy.com/pages/publicapi
+  $json_string = 'http://'.$cryptsy_server.'/api.php?method=singlemarketdata&marketid=' . $market_id;
+  $jsondata = file_get_contents($json_string);
+  }
+  
+  return $jsondata;
+
+}
+//////////////////////////////////////////////////////////
+ 
 function get_trade_price($market, $market_id) {
 
 $cryptsy_server = 'pubapi1.cryptsy.com';  // https://www.cryptsy.com/pages/publicapi
 
+
   if ( strtolower($market) == 'cryptsy' ) {
   
-  $json_string = 'http://'.$cryptsy_server.'/api.php?method=singlemarketdata&marketid='.$market_id;
-  
-  $jsondata = file_get_contents($json_string);
+  $jsondata = cryptsy_market_api($market_id);
   
   $data = json_decode($jsondata, TRUE);
   
   //print_r($data);
   
+	if (is_array($data) || is_object($data)) {
+	 
 	  foreach ($data as $markets) {
-	   if (is_array($markets)) {
-	    foreach($markets as $market) {
-	      foreach($market as $attributes) {
-  
-	  return $attributes["lasttradeprice"];
-  
-	  /*
-		foreach($attributes["recenttrades"] as $recenttrade) { 
-		  //echo "<pre>";
-		  //print_r($recenttrade);
-		  //echo "</pre>";
-		  echo "VALUES('{quantity: " . $recenttrade['quantity'] ."}', 'price: {" . $recenttrade['price'] . "}')";
+	   
+	    if (is_array($markets) || is_object($markets)) {
+	     
+		foreach($markets as $market) {
+		 
+		  if (is_array($market) || is_object($market)) {
+		   
+			foreach($market as $attributes) {
+	    
+		    return $attributes["lasttradeprice"];
+	    
+		    /*
+		     if (is_array($attributes["recenttrades"]) || is_object($attributes["recenttrades"])) {
+			  foreach($attributes["recenttrades"] as $recenttrade) { 
+			    //echo "<pre>";
+			    //print_r($recenttrade);
+			    //echo "</pre>";
+			    echo "VALUES('{quantity: " . $recenttrade['quantity'] ."}', 'price: {" . $recenttrade['price'] . "}')";
+			  }
+		      }
+	    
+		    */
+	    
+			}
+			
+		  }
+		  
 		}
-  
-	  */
-  
-	      }
+		
 	    }
-	   }
+	    
 	  }
+	  
+	}
   
   
   }
+
 
 
 }

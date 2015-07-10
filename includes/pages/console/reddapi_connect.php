@@ -44,17 +44,20 @@ if ( $_SESSION['sec_key'] != '' && $_POST['submit_console_command'] == $_SESSION
     if ( $_POST['console_mode'] == 'get_user_list' ) {
     $users = $api->get_user_list();
     
-    
-        foreach ( $users as $user ) {
-        
-        $balance = $api->get_user_balance($user->Username);
-        
-        echo "<br /><br /><br />" . '====================================================================================' . "<br /><br /><br />";
-        echo ' Creation Date:   ' .parse_unix_timestamp($user->DateCreated) . "<br /><br />";
-        echo '     User Name:   ' .$user->Username . "<br /><br />";
-        echo 'Wallet Address:   ' .$user->DepositAddress . "<br /><br />";
-        echo '  Coin Balance:   ' .$balance. ' RDD' . "<br />";
-        
+        if (is_array($users) || is_object($users)) {
+            
+            foreach ( $users as $user ) {
+            
+            $balance = $api->get_user_balance($user->Username);
+            
+            echo "<br /><br /><br />" . '====================================================================================' . "<br /><br /><br />";
+            echo ' Creation Date:   ' .parse_unix_timestamp($user->DateCreated) . "<br /><br />";
+            echo '     User Name:   ' .$user->Username . "<br /><br />";
+            echo 'Wallet Address:   ' .$user->DepositAddress . "<br /><br />";
+            echo '  Coin Balance:   ' .$balance. ' RDD' . "<br />";
+            
+            }
+            
         }
     
     echo "<br /><br /><br />" . '====================================================================================' . "<br /><br /><br />";

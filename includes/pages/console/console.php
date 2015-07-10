@@ -132,7 +132,7 @@ if ( !trim($dfdrdd_settings_options['reddcoin_tip_address']) ) {
 <a href='admin.php?page=dfd-reddcoin-tips-console'><b style='font-size: 17px;'>DFD Reddcoin Tips Managment Console</b></a>
 
 
-
+<p style='font-size: 45px; color: red;'>ReddAPI services have been taken offline by the person who used to provide them. I will come up with an alternate console using the Reddcoin developers direct blockchain API if / when I have time. Please feel free to donate Reddcoins to RiYahwwxu8nD7j7x2HrcmfPrSoduh6n9R2 to support my efforts to keep this wordpress plugin actively developed.</p>
 
 <div align='center' style='margin: 10px;'>
 <?php

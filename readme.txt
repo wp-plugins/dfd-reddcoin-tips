@@ -5,8 +5,8 @@ Donate link: http://www.dragonfrugal.com/open.source/software/dfdreddcointips/
 
 Tags: reddcoin, tips, tipping, cryptocurrency
 Requires at least: 3.8
-Tested up to: 4.1
-Stable tag: 1.0.6
+Tested up to: 4.2.2
+Stable tag: 1.0.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -66,3 +66,9 @@ You can install fairly easily doing a search in your plugin admin area, or uploa
 = 1.0.6 =
 * 2014-12-30
 * Changed payment link to use label value instead of message value, for better compatibility with Reddcoin wallets.
+
+= 1.0.7 =
+* 2015-7-10
+* Updated Cryptsy API compatibility to detect / switch if any API server is detected as offline
+* Fixed server compatibility bug that may have thrown errors on servers with PHP running in a fairly strict mode
+* Added notice about the ReddAPI no longer being in service

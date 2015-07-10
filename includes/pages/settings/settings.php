@@ -71,6 +71,9 @@ else {
 
 <b style='font-size: 17px;'>DFD Reddcoin Tips API configuration settings</b>
 
+
+<p style='font-size: 45px; color: red;'>Only the "general configuration settings" at the bottom of this page work at the moment. ReddAPI services have been taken offline by the person who used to provide them. I will come up with an alternate console using the Reddcoin developers direct blockchain API if / when I have time. Please feel free to donate Reddcoins to RiYahwwxu8nD7j7x2HrcmfPrSoduh6n9R2 to support my efforts to keep this wordpress plugin actively developed.</p>
+
 <p> &nbsp; </p>
 
 <p>
