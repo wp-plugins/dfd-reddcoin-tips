@@ -197,13 +197,13 @@ function get_btc_usd($btc_in_usd) {
 
   $cryptsy_server = 'pubapi.cryptsy.com';  // https://www.cryptsy.com/pages/publicapi
   $json_string = 'http://'.$cryptsy_server.'/api.php?method=singlemarketdata&marketid=' . $market_id;
-  $jsondata = file_get_contents($json_string);
+  $jsondata = @file_get_contents($json_string);
    
    
   if ( !$jsondata ) {
   $cryptsy_server = 'pubapi1.cryptsy.com';  // https://www.cryptsy.com/pages/publicapi
   $json_string = 'http://'.$cryptsy_server.'/api.php?method=singlemarketdata&marketid=' . $market_id;
-  $jsondata = file_get_contents($json_string);
+  $jsondata = @file_get_contents($json_string);
   }
   
   
@@ -211,7 +211,7 @@ function get_btc_usd($btc_in_usd) {
   if ( !$jsondata ) {
   $cryptsy_server = 'pubapi2.cryptsy.com';  // https://www.cryptsy.com/pages/publicapi
   $json_string = 'http://'.$cryptsy_server.'/api.php?method=singlemarketdata&marketid=' . $market_id;
-  $jsondata = file_get_contents($json_string);
+  $jsondata = @file_get_contents($json_string);
   }
   
   return $jsondata;

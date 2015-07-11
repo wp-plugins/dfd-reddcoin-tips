@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: DFD Reddcoin Tips
- * Version: 1.0.7
+ * Version: 1.0.8
  * Plugin URI: https://wordpress.org/plugins/dfd-reddcoin-tips/
  * Description: A Wordpress plugin to display <a href="http://www.reddcoin.com/" target="_blank">Reddcoin</a> tipping and payment widgets on your website, and send and recieve Reddcoins within a built-in password-protected admin console that fully integrates and connects you to the Reddcoin API (<a href="https://www.reddapi.com/" target="_blank">ReddAPI.com</a>).
  * Author: Michael Kilday

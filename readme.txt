@@ -6,7 +6,7 @@ Donate link: http://www.dragonfrugal.com/open.source/software/dfdreddcointips/
 Tags: reddcoin, tips, tipping, cryptocurrency
 Requires at least: 3.8
 Tested up to: 4.2.2
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -72,3 +72,7 @@ You can install fairly easily doing a search in your plugin admin area, or uploa
 * Updated Cryptsy API compatibility to detect / switch if any API server is detected as offline
 * Fixed server compatibility bug that may have thrown errors on servers with PHP running in a fairly strict mode
 * Added notice about the ReddAPI no longer being in service
+
+= 1.0.8 =
+* 2015-7-10
+* Suppress PHP warning when a particular Cryptsy API server is offline
